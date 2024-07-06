@@ -11,10 +11,11 @@ struct Bot;
 #[async_trait]
 impl EventHandler for Bot {
     async fn message(&self, ctx: Context, msg: Message) {
-        if msg.content == "!hello" {
-            if let Err(e) = msg.channel_id.say(&ctx.http, "world!").await {
-                error!("Error sending message: {:?}", e);
-            }
+        if msg.author.id == 972039350407823400 {
+            println!("{:?}", msg);
+            // if let Err(e) = msg.channel_id.say(&ctx.http, "world!").await {
+            //     error!("Error sending message: {:?}", e);
+            // }
         }
     }
 
